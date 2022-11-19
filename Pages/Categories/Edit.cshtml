@@ -1,0 +1,30 @@
+﻿@page
+@model CrudRazorPages.Pages.Categories.EditModel
+
+<form method="post">
+    <input hidden asp-for="Categories.Id" />
+    <div class="border p-3 mt-5" style="width:800px; margin:auto;">
+        <div class="row pb-2">
+            <h2 class="text-primary pl-3">Edit Category</h2>
+            <hr />
+        </div>
+        @*<div asp-validation-summary="All" class="text-danger"></div>*@
+        <div class="mb-3">
+            <label asp-for="Categories.Name"></label>
+            <input asp-for="Categories.Name" class="form-control" />
+            <span asp-validation-for="Categories.Name" class="text-danger" ></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Categories.DisplayOrder"></label>
+            <input asp-for="Categories.DisplayOrder" class="form-control" />
+            <span asp-validation-for="Categories.DisplayOrder" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-warning" style="width:150px;">Update</button>
+        <button type="submit" asp-page-handler="Back" formnovalidate class="btn btn-primary" style="width:150px;">Back</button>
+    </div>
+</form>
+@section Scripts{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

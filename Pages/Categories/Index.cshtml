@@ -1,0 +1,49 @@
+﻿@page
+@model CrudRazorPages.Pages.Categories.IndexModel
+
+<div class="container-fluid p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Category List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-page="create" class="btn btn-primary"><i class="bi bi-plus-circle"></i>&nbsp; Create New Category</a>
+        </div>
+    </div>
+
+    <br /> <br />
+
+    <table class="table table-bordered table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    Category name
+                </th>
+                <th>
+                    Display Order
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var i in Model.Categories)
+            {
+                <tr>
+                    <td width="30%">@i.Name</td>
+                    <td width="10%">@i.DisplayOrder</td>
+                    <td width="10%" class="text-center">
+                        <div class="w-75 btn-group">
+                            <a class="btn btn-warning mx-2" asp-page="Edit" asp-route-id="@i.Id">
+                                <i class="bi bi-pencil-square"></i>
+                            </a>
+                            <a class="btn btn-danger mx-2" asp-page="Delete" asp-route-id="@i.Id">
+                                <i class="bi bi-trash3"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
